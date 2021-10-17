@@ -9,8 +9,8 @@ import {
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { Response } from 'express';
-import { CurrentUser } from 'src/modules/users/models/current.user';
-import { RegistrationReqModel } from 'src/modules/users/models/registration.req.model';
+import { CurrentUser } from 'src/modules/users/models/dto/response/current.user';
+import { RegistrationReqModel } from 'src/modules/users/models/dto/request/registration.req.model';
 import { UsersService } from './users.service';
 
 @Controller('users')

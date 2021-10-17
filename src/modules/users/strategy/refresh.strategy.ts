@@ -2,10 +2,11 @@ import { BadRequestException, Injectable, UnauthorizedException } from "@nestjs/
 import { PassportStrategy } from "@nestjs/passport";
 import { Request } from "express";
 import { ExtractJwt, Strategy } from "passport-jwt";
-import { UsersService } from "./users.service";
+import { UsersService } from "../users.service";
 
 @Injectable()
 export class RefreshStrategy extends PassportStrategy(Strategy, 'refresh') {
+    
     constructor(private userService:UsersService){
         super({
             ignoreExpiration: true,
@@ -25,7 +26,7 @@ export class RefreshStrategy extends PassportStrategy(Strategy, 'refresh') {
         if(!payload){
             throw new BadRequestException('invalid jwt token');
         }
-        let data = req?.cookies["auth-cookie"];
+        let data = req?.cookie["auth-cookie"];
         if(!data?.refreshToken){
             throw new BadRequestException('invalid refresh token');
         }

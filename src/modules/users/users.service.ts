@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { RegistrationReqModel } from 'src/modules/users/models/registration.req.model';
-import { RegistrationRespModel } from 'src/modules/users/models/registration.resp.model';
+import { RegistrationReqModel } from 'src/modules/users/models/dto/request/registration.req.model';
+import { RegistrationRespModel } from 'src/modules/users/models/dto/response/registration.resp.model';
 import { MoreThanOrEqual, Repository } from 'typeorm';
 import { User } from './models/entities/user';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
-import { CurrentUser } from 'src/modules/users/models/current.user';
+import { CurrentUser } from 'src/modules/users/models/dto/response/current.user';
 import * as randomToken from 'rand-token';
 import * as moment from 'moment';
 
